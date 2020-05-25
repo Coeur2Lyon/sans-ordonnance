@@ -16,7 +16,9 @@ class PrincipalController extends AbstractController
             'controller_name' => 'PrincipalController',
         ]);
     }
-
+    /**
+     * @Route("/", name="home")
+     */
     public function home(){
         return $this->render('principal/home.html.twig');
 

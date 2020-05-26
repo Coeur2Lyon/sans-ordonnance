@@ -20,7 +20,10 @@ class PrincipalController extends AbstractController
      * @Route("/", name="home")
      */
     public function home(){
-        return $this->render('principal/home.html.twig');
+        return $this->render('principal/home.html.twig', [
+            'title' => "Aux petits maux les petits remèdes",
+            'age'=>40
+        ]);
 
     }
 }

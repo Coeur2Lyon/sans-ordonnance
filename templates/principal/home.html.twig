@@ -1,0 +1,44 @@
+{% extends './base.html.twig' %}
+{% block title %}Accueil{% endblock %}
+    {% block stylesheets %}{% endblock %}
+
+{% block body %}
+    <div class="margin">
+        <h1 class="center">{{ title }}</h1>
+
+        <div class="center-div">
+            <fieldset>
+                <legend>Quelles sont vos symptômes?</legend>
+
+                <div class="form-group">
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="customSwitch1" checked="">
+                        <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
+                    </div>
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" disabled="" id="customSwitch2">
+                        <label class="custom-control-label" for="customSwitch2">Disabled switch element</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <select class="custom-select">
+                        <option selected="">Open this select menu</option>
+                        <option value="douleur">Douleur (Mal de tête, maux de gorge rage de dents, rhumatismes, articulaires...)</option>
+                        <option value="nez">Nez bouché / nez qui coule</option>
+                        <option value="spasmes">Spasmes</option>
+                        <option value="digestion">Problèmes gastriques/digestion (Nausées, brûlures d'estomac, diarrhées, constipation,...)  </option>
+                        <option value="bobos">Blessure superficielle(plaies, brûlures,...)</option>
+                        <option value="fatigue">Fatigue/Sommeil</option>
+                        <option value="bobos">Problèmes bucco dentaire(Gingivite, aphtes,...)</option>
+
+
+                    </select>
+
+                </div>
+                <button type="button" cl <option value="fatigue">Fatigue/Sommeil</option>ass="btn btn-primary">OK</button>
+            </fieldset>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}{% endblock %}
+

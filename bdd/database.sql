@@ -4,7 +4,7 @@
 /*==============================================================*/
 
 
-drop table if exists FILM;
+drop table if exists MEDICAMENTS;
 
 drop table if exists ACTEUR_REALISATEUR;
 
@@ -63,23 +63,21 @@ create table EVALUE
 );
 
 /*==============================================================*/
-/* Table : FILM                                                 */
+/* Table : MEDICAMENTS                                                 */
 /*==============================================================*/
-create table FILM
+create table MEDICAMENTS
 (
-  IdFilm       int not null auto_increment,
-  TitreFr      varchar(50) charset utf8mb4
+  IdMedicaments       int not null auto_increment,
+  Nom_Medicament      varchar(150) charset utf8mb4
   COLLATE utf8mb4_unicode_ci,
-  TitreO       varchar(50) charset utf8mb4
+  Posologie_Recommandee       varchar(150) charset utf8mb4
   COLLATE utf8mb4_unicode_ci,
-  Scenario     text charset utf8mb4
+  Posologie_MAX     text charset utf8mb4
   COLLATE utf8mb4_unicode_ci,
   AnneeSortie  int,
-  NationaliteF varchar(50) charset utf8mb4
-  COLLATE utf8mb4_unicode_ci,
   CreatedAt    timestamp    default current_timestamp,
   IsDeleted    tinyint(1)   default 0,
-  primary key (IdFilm)
+  primary key (IdMedicaments)
 );
 
 /*==============================================================*/
@@ -149,13 +147,13 @@ references GENRE (IdGenre)
 
 alter table CORRESPOND
   add constraint FK_CORRESPOND2 foreign key (IdFilm)
-references FILM (IdFilm)
+references MEDICAMENTS (IdMedicaments)
   on delete cascade
   on update restrict;
 
 alter table EVALUE
   add constraint FK_EVALUE foreign key (IdFilm)
-references FILM (IdFilm)
+references MEDICAMENTS (IdMedicaments)
   on delete cascade
   on update restrict;
 
@@ -173,7 +171,7 @@ references ACTEUR_REALISATEUR (IdActeurRealisateur)
 
 alter table JOUE
   add constraint FK_JOUE2 foreign key (IdFilm)
-references FILM (IdFilm)
+references MEDICAMENTS (IdMedicaments)
   on delete cascade
   on update restrict;
 
@@ -185,7 +183,7 @@ references ACTEUR_REALISATEUR (IdActeurRealisateur)
 
 alter table REALISE
   add constraint FK_REALISE2 foreign key (IdFilm)
-references FILM (IdFilm)
+references MEDICAMENTS (IdMedicaments)
   on delete cascade
   on update restrict;
 
@@ -316,7 +314,7 @@ VALUES ('CHABBAT', 'Alain ', 1958, 'Fr', '2019-09-20 07:54:25'),
   ('DE FUNES', 'Louis', 1914, 'FR', '2019-10-23 10:24:02'),
   ('CAAN', 'James', 1940, 'US', '2019-10-23 12:04:00');
 
-INSERT INTO FILM (TitreFr, TitreO, Scenario, AnneeSortie, NationaliteF, CreatedAt)
+INSERT INTO MEDICAMENTS (Nom_Medicament, Posologie_Recommandee, Posologie_MAX, AnneeSortie, NationaliteF, CreatedAt)
 VALUES ('Impitoyable', 'Unforgiven',
         'Kansas 1880. William Munny, redoutable hors-la-loi reconverti dans l''élevage va, à la demande d''un jeune tueur, reprendre du service pour venger une prostituée défigurée par un cow-boy sadique.',
         1992, 'US', '2019-09-18 13:12:06'),
